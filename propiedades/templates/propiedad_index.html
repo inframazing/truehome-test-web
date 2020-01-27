@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<h1>Propiedades</h1>
+<div class="row">
+{% for propiedad in propiedades %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <div class="card-body">
+                <h5 class="card-title">{{ propiedad.name }}</h5>
+                <p class="card-text">{{ propiedad.address }}</p>
+                <p class="card-text">{{ propiedad.square_meters }} m²</p>
+                <p class="card-text">{{ propiedad.email }} </p>
+                <a href="{% url 'propiedad_detail' propiedad.pk %}"
+                   class="btn btn-primary">
+                    Más información
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
